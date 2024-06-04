@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Pre-Login</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="@{/login}">GameStore</a>
+        </div>
+        <div class="menu">
+            <a th:href="@{/login}">Library</a>
+            <a th:href="@{/login}">Genre</a>
+            <a th:href="@{/login}">Discount Game</a>
+            <a th:href="@{/login}">login</a>
+        </div>
+
+        <span sec:authorize="isAuthenticated">
+            <a th:href="@{/logout}">
+                Logout
+            </a>
+        </span>
+    </nav>
+    
+    <h1>List Game</h1>
+    
+    <table class="table-game">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="game : ${games}">
+                <td>
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}">
+                        <img th:src="@{'/images/' + ${game.image}}" alt="Image" style="width: 100px; height: auto;">
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="${game.name}"></a>
+                </td>
+                <td>
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="'$'+ ${game.price}"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

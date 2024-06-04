@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS untuk popup */
+        #popupMessage {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #popupMessage button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Payment Page</h2>
+    <h1 th:text="${game.name}"></h1>
+    <p th:text="'Price: $' + ${game.price}"></p>
+
+    <form id="paymentForm" action="/purchase/payment/process" method="post">
+        <input type="hidden" name="gameid" th:value="${game.id_game}">
+        <input type="hidden" name="name" th:value="${user.username}">
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod">
+            <option value="credit_card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+        </select><br><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="popupMessage">
+        <p>Payment has been sent to your email, please complete the payment! The game has been added to your library.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form dikirim secara default
+
+            // Mengirim form menggunakan JavaScript
+            var formData = new FormData(this);
+            fetch(this.action, {
+                method: this.method,
+                body: formData
+            }).then(function(response) {
+                if (response.ok) {
+                    showPopup();
+                } else {
+                    alert('Failed to process payment');
+                }
+            }).catch(function(error) {
+                console.error('Error:', error);
+                alert('Error processing payment');
+            });
+        });
+
+        function showPopup() {
+            document.getElementById('popupMessage').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupMessage').style.display = 'none';
+            window.location.href = "/user-page"; // Mengarahkan ke halaman user-page setelah menutup popup
+        }
+    </script>
+    <a th:href="@{/purchase/{id}(id=${game.id_game})}">Back </a>
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1A1B26; 
+    color: #ffffff; 
+
+}
+.logo i{
+    font-size: 36px;
+    vertical-align: middle;
+}
+
+.logo{
+    margin-left: -120px;
+    margin-top: -10px;
+}
+
+.tekken {
+    height: 600px;
+    width: 100%;
+    position: relative;
+    background-image: url(../images/tekken.jpeg);
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
+}
+.tekken::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust the opacity as needed */
+    z-index: 1;
+}
+.tekken a {
+    font-size: 18px;
+    padding: 10px 60px;
+    position: relative;
+    float: right;
+    margin-top: 420px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: -230px;
+    background-color: #E879F9;
+    z-index: 100; 
+    font-weight: 800;
+}
+
+.pre{
+    position: relative;
+    z-index: 5;
+    margin-left: 100px;
+}
+
+.utama{
+    width: 500px;
+    height: auto;   
+    z-index: 4;
+    margin-bottom: -100px;
+}
+
+.utama img{
+    margin-top: 130px;
+    margin-left: 170px;
+    width: 100%;
+    
+    z-index: 4;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add this line for shadow */
+}
+
+.preview{
+    margin-top: -50px;
+
+    display: flex;
+    flex-direction: row;
+    width: 750px;
+    margin-left: 35px;
+    height: auto;
+    z-index: 3;
+}
+
+.preview img{
+    border-radius: 8px;
+    margin-left: 10px;
+    width: 100%;
+    z-index: 3;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add this line for shadow */
+}
+
+i{
+    font-size: 100px;
+    margin-left: 130px;
+}
+
+.preview img:first-child {
+    border: 3px solid #fff;
+}
+
+span i{
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.tekken p{
+    font-size: 96px;
+    padding: 10px 60px;
+    position: relative;
+    font-weight: bold;
+    float: right;
+    margin-top: 90px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 300px;
+    z-index: 2;
+}
+
+
+h2 {
+    margin-top: 50px;
+    margin-bottom: 5px;
+    font-size: 42px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    vertical-align: middle;
+
+    font-size: 32px;
+}
+
+p{
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+.game-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-header a{
+    text-decoration: none;
+    color: white;
+    padding-top: 25px ;
+    margin-left: 1100px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.game-header a:hover{
+    color: #E879F9;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #202336; 
+    padding: 20px 20px;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+.logo a {
+    color: #ffffff; 
+    margin-left: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+
+}
+
+.menu{
+    float: left;
+}
+
+.menu a {
+    color: #ffffff; 
+    text-decoration: none;
+    margin-right: 70px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.menu a:first-child {
+    font-weight: bold;
+}
+
+.container{
+    margin: 0 300px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    margin-bottom: 100px;
+    gap: 20px;
+    row-gap: 100px;
+}
+
+
+.game-container .foto {
+    height: 280px; 
+    max-width: 200px;
+    overflow: hidden; 
+    margin-bottom: 20px;
+}
+
+
+
+.game-container .foto img {
+    object-fit: cover;
+    width: 100%; 
+    height: auto; 
+}
+
+.grid-container-filter {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 100px;
+}
+
+.game-container-filter .foto {
+    height: 280px; 
+    max-width: 200px;
+    overflow: hidden; 
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.title a{
+    font-size: 20px;
+    color: #ffffff; 
+    text-decoration: none;
+}
+
+.developer a{
+    font-size: 14px;
+    color: #b7b7b7; 
+    text-decoration: none;
+}
+
+.title{
+    margin-bottom: 10px;
+}
+
+.price a{
+    font-size: 18px;
+    color: #ffffff; 
+    text-decoration: none;
+}
+
+.game-container .title a:hover{
+    text-decoration: underline;
+}

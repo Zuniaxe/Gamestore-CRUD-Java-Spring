@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weer Gamestore</title>
+    <link rel="stylesheet" th:href="@{/css/user-page.css}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/54ce5a95f1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- =====================================navbar====================================== -->
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-gamepad fa-bounce" style="color: #e879f9;"></i><a th:href="@{/user-page}">Weer Gamestore</a>
+        </div>
+        <div class="menu">
+            <a th:href="@{/user-page}">Discover</a>
+            <a th:href="@{/library-page}">Library</a>
+            <a th:href="@{/genre}">Genre</a>
+        </div>
+        <span sec:authorize="isAuthenticated">
+            <a th:href="@{/logout}">
+                <i class="fa-solid fa-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i>
+            </a>
+        </span>
+    </nav>
+
+    <!-- ==========================================Header================================== -->
+
+    <div th:each="game : ${games}" th:if="${game.id_game == 2}" class="tekken">
+        <p>Top New<br>Releases</p>
+        <a th:href="@{/purchase/{id}(id=${game.id_game})}">View</a>
+        
+        <div class="pre">
+            <div class="utama">
+                <img th:src="@{/images/previewutama.jpg}" alt="">
+            </div>
+            <i class="fa-solid fa-caret-up fa-beat" style="color: #ffffff;"></i>
+            <div class="preview">
+                <img th:src="@{/images/preview1.jpg}" alt="">
+                <img th:src="@{/images/preview2.jpg}" alt="">
+                <img th:src="@{/images/preview3.jpg}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================FPS=========================================== -->
+
+    <div class="container">
+        <h2>Welcome Back, [[${user.getFullname}]]!</h2>
+        <p>Begin your adventure and explore the wonderful world of gaming</p>
+        <div th:each="genre : ${genres}" class="game-header">
+            <h1 th:if="${genre == 'fps'}">Top FPS</h1>
+            <a th:href="@{/genre/{genre}(genre=${genre})}" th:if="${genre == 'fps'}">View</a>
+        </div>        
+        <div class="grid-container-filter">
+            <div class="game-container-filter" th:each="game, iterStat : ${games}">
+                <div th:if="${game.genre == 'fps'}" th:unless="${iterStat.index > 35}">
+                    <div class="foto">
+                        <a th:href="@{/purchase/{id}(id=${game.id_game})}">
+                            <img th:src="@{'/images/' + ${game.image}}" alt="Image" class="game-image">
+                        </a>
+                    </div>
+                    <div class="developer">
+                        <a th:text="${game.developer}"></a>
+                    </div>
+                    <div class="title">
+                        <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="${game.name}"></a>
+                    </div>
+                    <div class="price">
+                        <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="'$' + ${game.price}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     <!-- ==========================================FPS=========================================== -->       
+            <div th:each="genre : ${genres}" class="game-header">
+                <h1 th:if="${genre == 'fps'}">Scarry</h1>
+                <a th:href="@{/genre/{genre}(genre=${genre})}" th:if="${genre == 'fps'}">View</a>
+            </div>        
+            <div class="grid-container-filter">
+                <div class="game-container-filter" th:each="game, iterStat : ${games}">
+                    <div th:if="${game.genre == 'fps'}" th:unless="${iterStat.index > 35}">
+                        <div class="foto">
+                            <a th:href="@{/purchase/{id}(id=${game.id_game})}">
+                                <img th:src="@{'/images/' + ${game.image}}" alt="Image" class="game-image">
+                            </a>
+                        </div>
+                        <div class="developer">
+                            <a th:text="${game.developer}"></a>
+                        </div>
+                        <div class="title">
+                            <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="${game.name}"></a>
+                        </div>
+                        <div class="price">
+                            <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="'$' + ${game.price}"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ====================================================ALL GAMES============================================== -->
+
+
+        <h1>Recently Updated</h1>
+        <div class="grid-container">
+            <div class="game-container" th:each="game : ${games}">
+                <div class="foto">
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}">
+                        <img th:src="@{'/images/' + ${game.image}}" alt="Image" class="game-image">
+                    </a>
+                </div>
+                <div class="developer">
+                    <a th:text="${game.developer}"></a>
+                </div>
+                <div class="title">
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="${game.name}"></a>
+                </div>
+                <div class="price">
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="'$'+ ${game.price}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <table class="table-game">
+        <tbody>
+            <tr th:each="game : ${games}">
+                <td>
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}">
+                        <img th:src="@{'/images/' + ${game.image}}" alt="Image" class="game-image">
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="${game.name}"></a>
+                </td>
+                <td>
+                    <a th:href="@{/purchase/{id}(id=${game.id_game})}" th:text="'$'+ ${game.price}"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <script src="script.js"></script>
+</body>
+</html>

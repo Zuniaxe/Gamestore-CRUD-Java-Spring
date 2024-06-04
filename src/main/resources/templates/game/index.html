@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/tabel.css}" />
+    <title>Admin Game</title>
+</head>
+<body>
+    <h1>List Game</h1>
+    <div class="buttons">
+    <div class="logout">
+    <span sec:authorize="isAuthenticated">
+        <a th:href="@{/logout}">
+            Logout
+        </a>
+    </span>
+</div>
+    <div class="purchase-history">
+        <a th:href="@{/game/purchase-history}">Purchase History</a>
+    </div>
+    <div class="create">
+        <a href="/game/createGame">Add Game</a>
+    </div>
+</div>   
+    <table class="table-game">
+        <thead>
+            <tr>
+            <th>ID Game</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Genre</th>
+            <th>Stock</th>
+            <th>Release</th>
+            <th>Rating</th>
+            <th>Developer</th>
+            <th>Platform</th>
+            <th>Publisher</th>
+            <th>Image</th>
+            <th>Trailer</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="game : ${games}">
+                <td th:text="${game.id_game}"></td>
+                <td th:text="${game.name}"></td>
+                <td th:text="'$'+ ${game.price} "></td>
+                <td th:text="${game.description}"></td>
+                <td th:text="${game.genre}"></td>
+                <td th:text="${game.stock}"></td>
+                <td th:text="${game.release_date}"></td>
+                <td th:text="${game.rating}"></td>
+                <td th:text="${game.developer}"></td>
+                <td th:text="${game.platform}"></td>
+                <td th:text="${game.publisher}"></td>
+                <td>
+                    <img th:src="@{'/images/' + ${game.image}}" 
+                    alt="..." style="width: 100px;" height="auto">
+                </td>
+                <td>
+                    <a th:href="@{${game.trailer}}" target="_blank">Watch Trailer</a>
+                </td>
+                <td>
+                    <div class="edit">
+                        <a th:href="@{/game/edit(id=${game.id_game})}">edit</a>
+                    </div>
+                    <div class="delete">
+                        <a th:href="@{/game/delete(id=${game.id_game})}" onclick="return confirm('are you sure')">delete</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        if (sidebar.style.right === '-250px') {
+            sidebar.style.right = '0';
+        } else {
+            sidebar.style.right = '-250px';
+        }
+    }
+    </script>
+</body>
+</html>

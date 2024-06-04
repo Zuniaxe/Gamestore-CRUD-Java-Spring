@@ -1,0 +1,139 @@
+/* Style for container */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1A1B26; 
+    color: #ffffff; 
+    max-height: 100vh;
+
+}
+
+.container {
+    margin: 150px 400px;
+    background-color: #15161E;
+    display: flex;
+    flex-direction: row;
+}
+
+.details{
+    display: block;
+}
+/* Style for game title */
+.title {
+    margin-bottom: 25px;
+    font-size: 36px;
+    color: #f8f8f2;
+}
+
+/* Style for game image container */
+.foto {
+    margin-bottom: 20px;
+    margin-right: 50px;
+    height: 600px; 
+    width: auto;
+
+}
+
+/* Style for game image */
+.game-image {
+    height: 100%;
+    width: auto; 
+    border-radius: 10px; /* To match your other image styles */
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Style for game price */
+.price {
+    font-size: 28px;
+    color: #f8f8f2; 
+    margin-bottom: 25px;
+}
+
+
+/* Style for game description */
+.description {
+    font-size: 20px;
+    color: #f8f8f2; 
+    margin-bottom: 25px;
+}
+
+/* Style for game developer */
+.developer {
+    font-size: 16px;
+    color: #b7b7b7; 
+}
+
+/* Style for game genre */
+.genre {
+    font-size: 16px;
+    color: #b7b7b7; 
+}
+
+/* Style for game platform */
+.platform {
+    font-size: 16px;
+    color: #b7b7b7; 
+}
+
+/* Style for game publisher */
+.publisher {
+    font-size: 16px;
+    color: #b7b7b7; 
+}
+
+/* Style for game rating */
+.rating {
+    font-size: 16px;
+    color: #b7b7b7; 
+}
+
+/* Style for game release date */
+.release-date {
+    font-size: 16px;
+    color: #b7b7b7; 
+}
+
+/* Style for trailer link */
+.trailer-link {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #E879F9;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Style for button */
+.btn-primary {
+    background-color: #4FD6BE; 
+    color: #1a1b27; 
+    width: 50%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+/* Style for button hover */
+.btn-primary:hover {
+    background-color: #41A6B5; 
+}
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/tabel.css}" />
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>Purchase History</h1>
+    <table class="table-game">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Game</th>
+                <th>Payment Method</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="purchase : ${purchases}">
+                <td th:text="${purchase.id}"></td>
+                <td th:text="${purchase.name}"></td>
+                <td th:text="${purchase.game.name}"></td>
+                <td th:text="${purchase.paymentMethod}"></td>
+                <td th:text="${purchase.phoneNumber}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="create">
+    <a href="/game">back</a>
+    </div>
+</body>
+</html>

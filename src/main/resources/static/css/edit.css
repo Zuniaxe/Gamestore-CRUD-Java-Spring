@@ -1,0 +1,87 @@
+.container-create {
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #1F2335; 
+    color: #ffffff; 
+}
+
+body{
+    background-image: linear-gradient(135deg, #1a1b27, #13131e, #0e0f18, #08090e);
+}
+
+h1 {
+    color: #7AA2F7; 
+    text-align: center;
+}
+
+
+label {
+    color: #ffffff; 
+    margin-bottom: 10px;
+}
+
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    border: 1px solid #7AA2F7; 
+    background-color: #44475A; 
+    color: #ffffff; 
+}
+
+input[type="file"] {
+    margin: 10px 0px;
+}
+
+select{
+    width: 102.3%;
+}
+
+.btn-primary {
+    background-color: #4FD6BE; 
+    color: #1a1b27; 
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primary:hover {
+    background-color: #41A6B5; 
+}
+
+
+a {
+    color: #1a1b27; 
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1a1b27; 
+}
+
+.cancel{
+    background-color: #FF757F;
+    color: #1a1b27; 
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    max-width: 50px;
+    margin-left: 20px;
+}
+
+.cancel:hover {
+    background-color: #C53B53;
+}
+
+.button{
+    display: flex;
+    margin-top: 20px;
+}

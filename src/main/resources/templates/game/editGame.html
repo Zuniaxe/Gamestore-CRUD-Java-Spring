@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/edit.css}" />
+
+    <title>Edit Game</title>
+</head>
+<body>
+    <div class="container-create">
+        <h1>Edit Game</h1>
+        <form method="post" enctype="multipart/form-data" th:object="${gameCreate}">
+            <div>
+                <label>ID</label> 
+                <input readonly class="form-control" type="text" th:value="${game.id_game}">
+            </div>
+            <div>
+                <label>Name</label>
+                <input class="form-control" type="text" th:field="*{name}">
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+            </div>
+
+            <div>
+                <label>Price</label>
+                <input class="form-control" type="number" step="0.01" th:field="*{price}">
+                <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</p>
+            </div>
+
+            <div>
+                <label>Stock</label>
+                <input class="form-control" type="number" th:field="*{stock}">
+                <p th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}">Stock Error</p>
+            </div>
+
+            <div>
+                <label>Genre</label>
+                <select class="form-control" th:field="*{genre}">
+                    <option value="horror">Horror</option>
+                    <option value="fighting">Fighting</option>
+                    <option value="fps">FPS</option>
+                    <option value="survival">Survival</option>
+                    <option value="adventure">Adventure</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Developer</label>
+                <input class="form-control" type="text" th:field="*{developer}">
+            </div>
+
+            <div>
+                <label>Platform</label>
+                <input class="form-control" type="text" th:field="*{platform}">
+            </div>
+
+            <div>
+                <label>Publisher</label>
+                <input class="form-control" type="text" th:field="*{publisher}">
+            </div>
+
+            <div>
+                <label>Rating</label>
+                <input class="form-control" type="number" th:field="*{rating}">
+                <p th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}">Rating Error</p>
+            </div>
+
+            <div>
+                <label>Trailer</label>
+                <input class="form-control" type="text" th:field="*{trailer}">
+            </div>
+
+            <div>
+                <label>Release Date</label>
+                <input class="form-control" type="date" th:field="*{release_date}">
+            </div>
+
+            <div>
+                <label>Description</label>
+                <textarea class="form-control" th:field="*{description}" rows="4"></textarea>
+                <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</p>
+            </div>
+            <div>
+                <img th:src="@{'/images/' + ${game.image}}" alt="..." width="150px">
+            </div>
+            <div>
+                <label>Image</label>
+                <input class="form-control" type="file" th:field="*{image}">
+            </div>
+
+            <div class="button">
+                <button type="submit" class="btn btn-primary">Update</button>
+            
+            <div class="cancel">
+                <a href="/game">cancel</a>
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

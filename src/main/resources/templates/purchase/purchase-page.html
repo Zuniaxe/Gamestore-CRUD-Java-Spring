@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/puchase.css}" />
+</head>
+
+<body class="container">
+    <div class="foto">
+        <img class="game-image" th:src="@{'/images/' + ${game.image}}" alt="Image">
+    </div>
+    <div class="details">
+    <h1 class="title" th:text="${game.name}"></h1>
+    <p class="description" th:text="${game.description}"></p>
+    <h4>Genre:</h4>
+    <p class="genre" th:text="${game.genre}"></p>
+    <h4>Developer:</h4>
+    <p class="developer" th:text="${game.developer}"></p>
+    <h4>Publisher:</h4>
+    <p class="publisher" th:text="${game.publisher}"></p>
+    <h4>Platform:</h4>
+    <p class="platform" th:text="${game.platform}"></p>
+    <h4>Rating:</h4>
+    <p class="rating" th:text="${game.rating}"></p>
+    <h4>Release date:</h4>
+    <p class="release-date" th:text="${game.release_date}"></p>
+    <a class="trailer-link" th:href="@{${game.trailer}}" target="_blank">Watch Trailer</a>
+    <p class="price" th:text="'Price: $' + ${game.price}"></p>
+    <a class="btn-primary" th:href="@{/purchase/payment/{id}(id=${game.id_game})}">Purchase</a>
+    <a class="btn-primary" th:href="@{/user-page}">Back to Game List</a>
+</div>
+</body>
+</html>

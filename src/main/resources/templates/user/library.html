@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/library.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/54ce5a95f1.js" crossorigin="anonymous"></script>
+
+    <title>Library Page</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-gamepad"></i><a th:href="@{/user-page}">Weer Gamestore</a>
+        </div>
+        <div class="menu">
+            <a th:href="@{/user-page}">Discover</a>
+            <a th:href="@{/library-page}">Library</a>
+            <a th:href="@{/genre}">Genre</a>
+        </div>
+        <span sec:authorize="isAuthenticated">
+            <a th:href="@{/logout}">
+                <i class="fa-solid fa-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i>
+            </a>
+        </span>
+    </nav>
+    <h2>Library for [[${user.getFullname}]]</h2>
+
+
+    <!-- Library Content -->
+    <h1>Your Purchased Games</h1>
+
+    <table class="table-library">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="game : ${purchasedGames}">
+                <td>
+                    <img th:src="@{'/images/' + ${game.image}}" alt="Image" style="width: 100px; height: auto;">
+                </td>
+                <td th:text="${game.name}"></td>
+                <p><td th:text="${game.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/user-page}" class="btn-back">Back to User Page</a>
+</body>
+</html>

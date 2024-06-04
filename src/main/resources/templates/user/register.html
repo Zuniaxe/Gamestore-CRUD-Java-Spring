@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <title>Registration</title>
+</head>
+<body>
+
+    <div class="container-login">
+        <div class="kazuya">
+            <img th:src="@{/images/kazuya.png}" alt="Kazuya Image">
+        </div>
+        
+    <div class="container">
+        <div class="errormessage" th:if="${errormessage != null}">
+            [[${message}]]
+        </div>
+        <h2>Sign Up to <br><span>explore games and embark on an epic Journey</span></h2>
+        <form 
+            th:action="@{/registration}" 
+            method="post" 
+            role="form" 
+            th:object="${user}">
+            <div class="form-group">
+                <label for="fullname">Fullname</label>
+                <input th:field="*{fullname}" type="text" id="fullname" name="fullname" placeholder="Enter your Fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input th:field="*{email}" type="text" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <input type="hidden" th:field="*{role}" value="USER">
+            <input type="submit" value="Register">
+        </form>
+        <div class="signin">
+            <p>Already have an account?</p><a href="/login">Login here</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
